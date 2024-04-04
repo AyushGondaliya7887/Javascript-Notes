@@ -456,3 +456,34 @@
     }
     console.log(highlyRepeatedElement(arr))
 }
+//20 Suffle an array 
+{
+    let arr = [1,2,3,4,5,6,7,8]
+    function suffleArray(arr){
+        if(Array.isArray(arr)){
+            let newArr = [...arr]
+            for (let i = 0; i < newArr.length; i++) {
+                let range = Math.floor((Math.random()* newArr.length));
+                [newArr[i] , newArr[range]] = [newArr[range] , newArr[i]]
+            }
+            return newArr
+        } else {
+            error = `Please enter an array instead of ${typeof arr}`
+            throw error
+        }
+    }
+    console.log(arr);
+    console.log(suffleArray(arr))
+}
+//21 write a function to find the union of two arrays
+{
+    let arr1 = [1,2,3,4,5,6,7,8]
+    let arr2 = [5,6,7,8,9,10,11,12]
+    function arrUnion(arr1, arr2){
+        if ( !(Array.isArray(arr1)) || !(Array.isArray(arr2))) {
+            throw new Error `Please enter arrays.`
+        }
+        return [...new Set(arr1.concat(arr2))]
+    }
+    console.log(arrUnion(arr1,arr2))
+}
